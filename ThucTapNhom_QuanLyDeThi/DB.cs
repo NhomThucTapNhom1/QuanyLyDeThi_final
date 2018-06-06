@@ -11,7 +11,7 @@ namespace ThucTapNhom_QuanLyDeThi
     
     public class DB
     {
-        public static Func<DbConnection> ConnectionFactory = () => new SqlConnection(@"Data Source=DESKTOP-6KM2KGB\SQLEXPRESS;Initial Catalog=QuanLyNganHangDeThi;Integrated Security=True");
+        public static Func<DbConnection> ConnectionFactory = () => new SqlConnection(@"Data Source=NGOCDATNGUYEN\SQLEXPRESS;Initial Catalog=QuanLyNganHangDeThi;Integrated Security=True");
 
     }
 }
