@@ -102,6 +102,7 @@ namespace ThucTapNhom_QuanLyDeThi
                         
                         if (con.SetData("sp_ThemNV N'" + txtHoTen.Text + "',N'" + txtDiaChi.Text + "',N'" + txtSDT.Text + "',N'" + dtpNgaySinh.Text + "',N'" + txtChucVu.Text + "'") == true)
                             MessageBox.Show("Bạn đã thêm vào thành công.", "Thông báo");
+                        
                     }
                 }
                 catch (Exception)
@@ -178,6 +179,7 @@ namespace ThucTapNhom_QuanLyDeThi
 
         {
             groupBox1.Enabled = true;
+            btThem.Enabled = false;
             btSua.Enabled = false;
             btXoa.Enabled = false;
             btnReset.Enabled = false;
