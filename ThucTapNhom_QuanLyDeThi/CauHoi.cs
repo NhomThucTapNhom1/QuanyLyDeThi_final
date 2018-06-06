@@ -50,26 +50,34 @@ namespace ThucTapNhom_QuanLyDeThi
         }
         private void ThemCauHoi(object sender, EventArgs e)
         {
-            using (var connection = DB.ConnectionFactory())
+            try
             {
-                connection.Open();
-                using (var transaction1 = connection.BeginTransaction())
+                using (var connection = DB.ConnectionFactory())
                 {
-                    connection.QuerySingleOrDefault<string>("CauHoi_Insert",
-                         new
-                         {
+                    connection.Open();
+                    using (var transaction1 = connection.BeginTransaction())
+                    {
+                        connection.QuerySingleOrDefault<string>("CauHoi_Insert",
+                             new
+                             {
 
-                             MaCauHoi = txtMaCauHoi.Text,
-                             MaDe = txtMaDe.Text,
-                             NDCauHoi = txtNDCauHoi.Text
+                                 MaCauHoi = txtMaCauHoi.Text,
+                                 MaDe = txtMaDe.Text,
+                                 NDCauHoi = txtNDCauHoi.Text
 
-                         }, commandType: CommandType.StoredProcedure,
-                         transaction: transaction1);
-                    transaction1.Commit();
-                    CauHoi_Load(sender, e);
-                    MessageBox.Show("Thêm câu hỏi thành công");
+                             }, commandType: CommandType.StoredProcedure,
+                             transaction: transaction1);
+                        transaction1.Commit();
+                        CauHoi_Load(sender, e);
+                        MessageBox.Show("Thêm câu hỏi thành công");
+                    }
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Thêm câu hỏi không thành công");
+            }
+            
         }
         private void sửaTàiKhoản_Click(object sender, EventArgs e)
         {
@@ -80,18 +88,26 @@ namespace ThucTapNhom_QuanLyDeThi
         }
         private void SuaCauHoi(object sender, EventArgs e)
         {
-            using (var connection = DB.ConnectionFactory())
+            try
             {
-                connection.Open();
-                connection.QuerySingleOrDefault<string>("UpDate_CauHoi", new
+                using (var connection = DB.ConnectionFactory())
                 {
-                    MaCauHoi = txtMaCauHoi.Text,
-                    NDCauHoi = txtNDCauHoi.Text
-                }, commandType: CommandType.StoredProcedure);
-                CauHoi_Load(sender, e);
-                MessageBox.Show("Cập nhật thành công câu hỏi");
+                    connection.Open();
+                    connection.QuerySingleOrDefault<string>("UpDate_CauHoi", new
+                    {
+                        MaCauHoi = txtMaCauHoi.Text,
+                        NDCauHoi = txtNDCauHoi.Text
+                    }, commandType: CommandType.StoredProcedure);
+                    CauHoi_Load(sender, e);
+                    MessageBox.Show("Cập nhật thành công câu hỏi");
 
+                }
             }
+            catch(Exception)
+            {
+                MessageBox.Show("Cập nhật không thành công câu hỏi");
+            }
+            
         }
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
@@ -114,23 +130,31 @@ namespace ThucTapNhom_QuanLyDeThi
 
         private void btnXoaCauHoi_Click(object sender, EventArgs e)
         {
-            using (var connection = DB.ConnectionFactory())
+            try
             {
-                connection.Open();
-                using (var transaction1 = connection.BeginTransaction())
+                using (var connection = DB.ConnectionFactory())
                 {
-                     connection.QuerySingleOrDefault<int>("Delete_CauHoi", 
-                            new
-                            {
-                                key = txtMaCauHoi.Text
-                            }, 
-                            commandType: CommandType.StoredProcedure,
-                            transaction: transaction1);
-                    transaction1.Commit();
-                    MessageBox.Show("Xoa ok");
-                    CauHoi_Load(sender, e);
+                    connection.Open();
+                    using (var transaction1 = connection.BeginTransaction())
+                    {
+                        connection.QuerySingleOrDefault<int>("Delete_CauHoi",
+                               new
+                               {
+                                   key = txtMaCauHoi.Text
+                               },
+                               commandType: CommandType.StoredProcedure,
+                               transaction: transaction1);
+                        transaction1.Commit();
+                        MessageBox.Show("Xoa ok");
+                        CauHoi_Load(sender, e);
+                    }
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Xoa không thành công");
+            }
+            
         }
 
         private void dgvCauHoi_CellContentClick(object sender, DataGridViewCellEventArgs e)

@@ -37,25 +37,33 @@ namespace ThucTapNhom_QuanLyDeThi
         }
         private void ThemDeBai(object sender, EventArgs e)
         {
-            using (var connection = DB.ConnectionFactory())
+            try
             {
-                connection.Open();
-                using (var transaction1 = connection.BeginTransaction())
+                using (var connection = DB.ConnectionFactory())
                 {
-                    connection.QuerySingleOrDefault<string>("Insert_DeBai",
-                         new
-                         {
-                             
-                             MaDe = txtMaDe.Text,
-                             TenDe = txtTenDe.Text
+                    connection.Open();
+                    using (var transaction1 = connection.BeginTransaction())
+                    {
+                        connection.QuerySingleOrDefault<string>("Insert_DeBai",
+                             new
+                             {
 
-                         }, commandType: CommandType.StoredProcedure,
-                         transaction: transaction1);
-                    transaction1.Commit();
-                    DeBai_Load(sender, e);
-                    MessageBox.Show("Thêm đề bài thành công");
+                                 MaDe = txtMaDe.Text,
+                                 TenDe = txtTenDe.Text
+
+                             }, commandType: CommandType.StoredProcedure,
+                             transaction: transaction1);
+                        transaction1.Commit();
+                        DeBai_Load(sender, e);
+                        MessageBox.Show("Thêm đề bài thành công");
+                    }
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Thêm đề bài không thành công");
+            }
+            
         }
         private void DeBai_Load(object sender, EventArgs e)
         {
@@ -78,17 +86,25 @@ namespace ThucTapNhom_QuanLyDeThi
         }
         private void SuaDeBai(object sender, EventArgs e)
         {
-            using (var connection = DB.ConnectionFactory())
+            try
             {
-                connection.Open();
-                connection.QuerySingleOrDefault<string>("Update_DeBai", new
+                using (var connection = DB.ConnectionFactory())
                 {
-                    MaDe = txtMaDe.Text,
-                    TenDe = txtTenDe.Text
-                }, commandType: CommandType.StoredProcedure);
-                DeBai_Load(sender, e);
-                MessageBox.Show("Cập nhật thành công đề bài");
+                    connection.Open();
+                    connection.QuerySingleOrDefault<string>("Update_DeBai", new
+                    {
+                        MaDe = txtMaDe.Text,
+                        TenDe = txtTenDe.Text
+                    }, commandType: CommandType.StoredProcedure);
+                    DeBai_Load(sender, e);
+                    MessageBox.Show("Cập nhật thành công đề bài");
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Cập nhật không thành công đề bài");
+            }
+            
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
@@ -105,23 +121,31 @@ namespace ThucTapNhom_QuanLyDeThi
 
         private void btnXoaDe_Click(object sender, EventArgs e)
         {
-            using (var connection = DB.ConnectionFactory())
+            try
             {
-                connection.Open();
-                using (var transaction1 = connection.BeginTransaction())
+                using (var connection = DB.ConnectionFactory())
                 {
-                    connection.QuerySingleOrDefault<int>("Delete_CauHoi",
-                           new
-                           {
-                               key = txtMaDe.Text
-                           },
-                           commandType: CommandType.StoredProcedure,
-                           transaction: transaction1);
-                    transaction1.Commit();
-                    MessageBox.Show("Xoa ok");
-                    DeBai_Load(sender, e);
+                    connection.Open();
+                    using (var transaction1 = connection.BeginTransaction())
+                    {
+                        connection.QuerySingleOrDefault<int>("Delete_CauHoi",
+                               new
+                               {
+                                   key = txtMaDe.Text
+                               },
+                               commandType: CommandType.StoredProcedure,
+                               transaction: transaction1);
+                        transaction1.Commit();
+                        MessageBox.Show("Xoa ok");
+                        DeBai_Load(sender, e);
+                    }
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Xoa ko thành công");
+            }
+            
         }
 
         private void btnMauDeThi_Click(object sender, EventArgs e)
@@ -130,6 +154,11 @@ namespace ThucTapNhom_QuanLyDeThi
             MauDeThi t = new MauDeThi();
             t.ShowDialog();
             this.Show();
+        }
+
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
 
         private void dgvMaDe_CellContentClick(object sender, DataGridViewCellEventArgs e)

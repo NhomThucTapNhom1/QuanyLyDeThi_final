@@ -38,27 +38,36 @@ namespace ThucTapNhom_QuanLyDeThi
         }
         private void ThemDapAn(object sender, EventArgs e)
         {
-            using (var connection = DB.ConnectionFactory())
+            try
             {
-                connection.Open();
-                using (var transaction1 = connection.BeginTransaction())
+                using (var connection = DB.ConnectionFactory())
                 {
-                    connection.QuerySingleOrDefault<string>("Insert_DapAn",
-                         new
-                         {
-                             MaDapAn = txtMaDA.Text,
-                             NDDA = txtNDDapAn.Text,
-                             GhiChu = txtGhiChu.Text,
-                             MaCauHoi = txtMaCauHoi.Text,
-                             MaDe = txtMaDe.Text,
 
-                         }, commandType: CommandType.StoredProcedure,
-                         transaction: transaction1);
-                    transaction1.Commit();
-                    DapAn_Load(sender, e);
-                    MessageBox.Show("Thêm đáp án thành công");
+                    connection.Open();
+                    using (var transaction1 = connection.BeginTransaction())
+                    {
+                        connection.QuerySingleOrDefault<string>("Insert_DapAn",
+                             new
+                             {
+                                 MaDa = txtMaDA.Text,
+                                 NDDA = txtNDDapAn.Text,
+                                 GhiChu = txtGhiChu.Text,
+                                 MaCauHoi = txtMaCauHoi.Text,
+                                 MaDe = txtMaDe.Text,
+
+                             }, commandType: CommandType.StoredProcedure,
+                             transaction: transaction1);
+                        transaction1.Commit();
+                        DapAn_Load(sender, e);
+                        MessageBox.Show("Thêm đáp án thành công");
+                    }
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Bạn thêm vào không thành công.", "Kiểm tra lại");
+            }
+           
         }
         private void btnSuaDapAn_Click(object sender, EventArgs e)
         {
@@ -71,19 +80,27 @@ namespace ThucTapNhom_QuanLyDeThi
         }
         private void SuaDapAn(object sender, EventArgs e)
         {
-            using (var connection = DB.ConnectionFactory())
+            try
             {
-                connection.Open();
-                connection.QuerySingleOrDefault<string>("Update_DapAn", new
+                using (var connection = DB.ConnectionFactory())
                 {
-                    MaDapAn = txtMaDA.Text,
-                    NDDA = txtNDDapAn.Text,
-                    GhiChu = txtGhiChu.Text
-                }, commandType: CommandType.StoredProcedure);
-                DapAn_Load(sender, e);
-                MessageBox.Show("Cập nhật thành công đáp án");
+                    connection.Open();
+                    connection.QuerySingleOrDefault<string>("Update_DapAn", new
+                    {
+                        MaDapAn = txtMaDA.Text,
+                        NDDA = txtNDDapAn.Text,
+                        GhiChu = txtGhiChu.Text
+                    }, commandType: CommandType.StoredProcedure);
+                    DapAn_Load(sender, e);
+                    MessageBox.Show("Cập nhật thành công đáp án");
 
+                }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Bạn sửa không thành công.", "Kiểm tra lại");
+            }
+            
         }
 
         private void DapAn_Load(object sender, EventArgs e)
@@ -103,23 +120,31 @@ namespace ThucTapNhom_QuanLyDeThi
 
         private void btnXoaDapAn_Click(object sender, EventArgs e)
         {
-            using (var connection = DB.ConnectionFactory())
+            try
             {
-                connection.Open();
-                using (var transaction1 = connection.BeginTransaction())
+                using (var connection = DB.ConnectionFactory())
                 {
-                    connection.QuerySingleOrDefault<int>("Delete_CauHoi",
-                           new
-                           {
-                               key = txtMaDA.Text
-                           },
-                           commandType: CommandType.StoredProcedure,
-                           transaction: transaction1);
-                    transaction1.Commit();
-                    MessageBox.Show("Xoa ok");
-                    DapAn_Load(sender, e);
+                    connection.Open();
+                    using (var transaction1 = connection.BeginTransaction())
+                    {
+                        connection.QuerySingleOrDefault<int>("Delete_CauHoi",
+                               new
+                               {
+                                   key = txtMaDA.Text
+                               },
+                               commandType: CommandType.StoredProcedure,
+                               transaction: transaction1);
+                        transaction1.Commit();
+                        MessageBox.Show("Xoa ok");
+                        DapAn_Load(sender, e);
+                    }
                 }
             }
+            catch (Exception)
+            {
+                MessageBox.Show("Bạn xóa không thành công.", "Kiểm tra lại");
+            }
+            
         }
 
         private void btnLuu_Click(object sender, EventArgs e)
