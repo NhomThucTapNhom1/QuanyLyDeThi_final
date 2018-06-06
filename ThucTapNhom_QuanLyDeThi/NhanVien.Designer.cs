@@ -44,8 +44,6 @@
             this.btThem = new System.Windows.Forms.Button();
             this.btSua = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtChucVu = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.btXoa = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.btThoat = new System.Windows.Forms.Button();
@@ -186,8 +184,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.txtChucVu);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.txtDiaChi);
             this.groupBox1.Controls.Add(this.txtMaNV);
             this.groupBox1.Controls.Add(this.txtHoTen);
@@ -203,22 +199,6 @@
             this.groupBox1.Size = new System.Drawing.Size(635, 152);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
-            // 
-            // txtChucVu
-            // 
-            this.txtChucVu.Location = new System.Drawing.Point(436, 111);
-            this.txtChucVu.Name = "txtChucVu";
-            this.txtChucVu.Size = new System.Drawing.Size(182, 20);
-            this.txtChucVu.TabIndex = 30;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(344, 118);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(47, 13);
-            this.label6.TabIndex = 31;
-            this.label6.Text = "Chức vụ";
             // 
             // btXoa
             // 
@@ -305,8 +285,6 @@
         private System.Windows.Forms.Button btSua;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btXoa;
-        private System.Windows.Forms.TextBox txtChucVu;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btThoat;
         private System.Windows.Forms.Button btnReset;

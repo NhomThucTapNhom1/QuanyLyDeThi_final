@@ -21,7 +21,9 @@ namespace ThucTapNhom_QuanLyDeThi
 
         private void btnDangKy_Click(object sender, EventArgs e)
         {
-            this.Close();
+            DialogResult tb = MessageBox.Show("Bạn chắc chắn muốn thoát hay không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (tb == DialogResult.OK)
+                Application.Exit();
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
