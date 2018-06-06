@@ -77,8 +77,6 @@ namespace ThucTapNhom_QuanLyDeThi
                 btXoa.Enabled = true;
 
                 txtMaNV.Enabled = false;
-                //label1.Visible = false;
-                txtChucVu.Enabled = false;
             }
             else
             {
@@ -121,7 +119,7 @@ namespace ThucTapNhom_QuanLyDeThi
                     if (dg == DialogResult.Yes)
                     {
                         //sp_SuaNV(@MaNV  @Ten n @DC  @SDT  @NS  @ChucVu
-                        if (con.SetData("sp_SuaNV N'" + txtMaNV.Text + "',N'" + txtHoTen.Text + "',N'" + txtDiaChi.Text + "',N'" + txtSDT.Text + "',N'" + dtpNgaySinh.Text + "',N'" + txtChucVu.Text + "'") == true)
+                        if (con.SetData("sp_SuaNV N'" + txtMaNV.Text + "',N'" + txtHoTen.Text + "',N'" + txtDiaChi.Text + "',N'" + txtSDT.Text + "',N'" + dtpNgaySinh.Text + "'") == true)
                             MessageBox.Show("Bạn đã thay đổi thành công.", "Thông báo");
                     }
                 }
@@ -172,7 +170,6 @@ namespace ThucTapNhom_QuanLyDeThi
             txtDiaChi.Text = dgvNhanVien.Rows[r].Cells[2].Value.ToString();
             txtSDT.Text = dgvNhanVien.Rows[r].Cells[3].Value.ToString();
             dtpNgaySinh.Text = dgvNhanVien.Rows[r].Cells[4].Value.ToString();
-            txtChucVu.Text = dgvNhanVien.Rows[r].Cells[5].Value.ToString();
             txtHoTen.Focus();
         }
 
@@ -187,10 +184,9 @@ namespace ThucTapNhom_QuanLyDeThi
             txtDiaChi.Text = "";
             txtMaNV.Text = "";
             txtSDT.Text = "";
-            txtChucVu.Text = "";
             txtMaNV.Enabled = false;
             //label1.Visible = false;
-            txtChucVu.Enabled = false;
+
 
             kt = true;
         }
@@ -212,7 +208,6 @@ namespace ThucTapNhom_QuanLyDeThi
             txtDiaChi.Text= dgvNhanVien.Rows[k].Cells[2].Value.ToString();
             txtSDT.Text= dgvNhanVien.Rows[k].Cells[3].Value.ToString();
             dtpNgaySinh.Text= dgvNhanVien.Rows[k].Cells[4].Value.ToString();
-            txtChucVu.Text= dgvNhanVien.Rows[k].Cells[5].Value.ToString();
             txtHoTen.Focus();
             kt = false;
         }
