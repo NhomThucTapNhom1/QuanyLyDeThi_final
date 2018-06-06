@@ -56,7 +56,11 @@ namespace ThucTapNhom_QuanLyDeThi
 
         public connect()
         {
-            StrCon = @"Data Source=DESKTOP-6KM2KGB\SQLEXPRESS;Initial Catalog=QuanLyNganHangDeThi;Integrated Security=True";
+<<<<<<< HEAD
+            StrCon = @"Data Source=NGOCDATNGUYEN\SQLEXPRESS;Initial Catalog=QuanLyNganHangDeThi;Integrated Security=True";
+=======
+            StrCon = @"Data Source=DESKTOP-H1LP27V;Initial Catalog=QuanLyNganHangDeThi;Integrated Security=True";
+>>>>>>> 826d033205e083cd7eae9793654a6b733e4b5bbc
             Conn = new SqlConnection(StrCon);
 
         }

@@ -72,11 +72,13 @@ namespace ThucTapNhom_QuanLyDeThi
             if(kt==true)
             {
                 btnReset.Enabled = true;
-                txtMaNV.Visible = true;
-                label1.Visible = true;
                 groupBox1.Enabled = false;
                 btSua.Enabled = true;
                 btXoa.Enabled = true;
+
+                txtMaNV.Enabled = false;
+                //label1.Visible = false;
+                txtChucVu.Enabled = false;
             }
             else
             {
@@ -100,8 +102,9 @@ namespace ThucTapNhom_QuanLyDeThi
                         //sp_ThemNV] (@Ten @DC @SDT @NS @ChucVu 
                         //cần kiểm tra nhân viên này có đang làm việc cho hệ thống thời điểm hiện tại khôngs
                         
-                        if (con.SetData("sp_ThemNV N'" + txtHoTen.Text + "',N'" + txtDiaChi.Text + "',N'" + txtSDT.Text + "',N'" + dtpNgaySinh.Text + "',N'" + txtChucVu.Text + "'") == true)
+                        if (con.SetData("sp_ThemNV N'" + txtHoTen.Text + "',N'" + txtDiaChi.Text + "',N'" + txtSDT.Text + "',N'" + dtpNgaySinh.Text + "'") == true)
                             MessageBox.Show("Bạn đã thêm vào thành công.", "Thông báo");
+                        
                     }
                 }
                 catch (Exception)
@@ -178,6 +181,7 @@ namespace ThucTapNhom_QuanLyDeThi
 
         {
             groupBox1.Enabled = true;
+            btThem.Enabled = false;
             btSua.Enabled = false;
             btXoa.Enabled = false;
             btnReset.Enabled = false;
@@ -186,8 +190,9 @@ namespace ThucTapNhom_QuanLyDeThi
             txtMaNV.Text = "";
             txtSDT.Text = "";
             txtChucVu.Text = "";
-            txtMaNV.Visible = false;
-            label1.Visible = false;
+            txtMaNV.Enabled = false;
+            //label1.Visible = false;
+            txtChucVu.Enabled = false;
 
             kt = true;
         }

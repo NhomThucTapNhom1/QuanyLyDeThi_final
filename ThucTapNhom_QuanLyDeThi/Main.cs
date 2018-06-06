@@ -16,9 +16,13 @@ namespace ThucTapNhom_QuanLyDeThi
 
         private void btXuat_Click(object sender, EventArgs e)
         {
-            this.Close();
-            DangNhap t = new DangNhap();
-            t.ShowDialog();
+            DialogResult tb = MessageBox.Show("Bạn chắc chắn muốn đăng xuất hay không ?", "Thông báo", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (tb == DialogResult.OK)
+            {
+                this.Hide();
+                DangNhap DN = new DangNhap();
+                DN.ShowDialog();
+            }
         }
 
         private void btQLNV_Click(object sender, EventArgs e)
