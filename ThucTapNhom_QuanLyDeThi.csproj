@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FFD01C9B-30C7-43A4-815D-4429E5C1E449}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ThucTapNhom_QuanLyDeThi</RootNamespace>
+    <AssemblyName>ThucTapNhom_QuanLyDeThi</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Dapper, Version=1.50.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.1.50.4\lib\net451\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Extension, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.Extension.1.0.0.1\lib\net45\Dapper.Extension.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CauHoi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CauHoi.Designer.cs">
+      <DependentUpon>CauHoi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="connect.cs" />
+    <Compile Include="DangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DangNhap.Designer.cs">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DapAn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DapAn.Designer.cs">
+      <DependentUpon>DapAn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DB.cs" />
+    <Compile Include="DeBai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeBai.Designer.cs">
+      <DependentUpon>DeBai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QuanLyDeThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QuanLyDeThi.Designer.cs">
+      <DependentUpon>QuanLyDeThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TaiKhoan.Designer.cs">
+      <DependentUpon>TaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MauDeThi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MauDeThi.designer.cs">
+      <DependentUpon>MauDeThi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CauHoiMD.cs" />
+    <Compile Include="Model\DapAnMD.cs" />
+    <Compile Include="Model\DeBaiMD.cs" />
+    <Compile Include="NhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NhanVien.Designer.cs">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CauHoi.resx">
+      <DependentUpon>CauHoi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DangNhap.resx">
+      <DependentUpon>DangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DapAn.resx">
+      <DependentUpon>DapAn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeBai.resx">
+      <DependentUpon>DeBai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QuanLyDeThi.resx">
+      <DependentUpon>QuanLyDeThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TaiKhoan.resx">
+      <DependentUpon>TaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MauDeThi.resx">
+      <DependentUpon>MauDeThi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NhanVien.resx">
+      <DependentUpon>NhanVien.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\1.jpg" />
+    <Content Include="Resources\11.jpg" />
+    <Content Include="Resources\123.bmp" />
+    <Content Include="Resources\329.ico" />
+    <Content Include="Resources\back-icon.png" />
+    <Content Include="Resources\back-icon1.png" />
+    <Content Include="Resources\delete.ico" />
+    <Content Include="Resources\EmploymentHistory.ico" />
+    <Content Include="Resources\FAQ-icon.png" />
+    <Content Include="Resources\FAQ-icon1.png" />
+    <Content Include="Resources\IconDocGia.ico" />
+    <Content Include="Resources\IconTacgia.ico" />
+    <Content Include="Resources\images.jpg" />
+    <Content Include="Resources\images.png" />
+    <Content Include="Resources\mhc.ico" />
+    <Content Include="Resources\mho.ico" />
+    <Content Include="Resources\Search.ico" />
+    <Content Include="Resources\Search1.ico" />
+    <Content Include="Resources\Search2.ico" />
+    <Content Include="Resources\sync.ico" />
+    <Content Include="Resources\sync1.ico" />
+    <Content Include="Resources\sync2.ico" />
+    <Content Include="Resources\sync3.ico" />
+    <Content Include="Resources\tải xuống %283%29.jpg" />
+    <Content Include="Resources\tải xuống.jpg" />
+    <Content Include="Resources\tải xuống.png" />
+    <Content Include="Resources\tải xuống1.png" />
+    <Content Include="Resources\tải xuống11.png" />
+    <Content Include="Resources\tải-xuống-_2_ %281%29.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
